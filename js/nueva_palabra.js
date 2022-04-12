@@ -1,0 +1,1 @@
+var palabras = doccument.query
