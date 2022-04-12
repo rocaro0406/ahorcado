@@ -1,0 +1,20 @@
+.mybackground {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(150deg, rgb(15, 245, 3), blue, rgb(94, 4, 158));
+    background-size: 400% 300%;
+    animation: BgGradient 5s ease infinite;
+}
+
+@keyframes BgGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
