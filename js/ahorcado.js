@@ -1,78 +1,9 @@
 var boton = document.querySelector("#iniciar-juego");
 boton.addEventListener("click", iniciarJuego);
-var palabra = palabraSecreta(arrayPalabras);
-var arrayPalabras = ["RON", "HERMIONE", "DUMBULDORE", "SNAPE", "FENIX", "GRIFFINDOR"];
-var intentos = 0;
 
-function palabraSecreta(array) {
-    var palabra_seleccionada = array[Math.floor(Math.random() * array.length)]
+var boton_insertar = document.querySelector("#nueva-palabra");
+boton_insertar.addEventListener("click", agregarPalabra);
 
-    return palabra_seleccionada;
-}
-//FUNCION PARA INICIAR EL JUEGO
-function iniciarJuego() {
-
-    pantalla.classList.remove("oculto");
-    dibujarBase();
-    guiones();
-
-    if ((intentos == 9) || (!partida)) {
-
-        return;
-
-    } else {
-
-        window.addEventListener("keyup", function(event) { //CAPTURAR TECLA	
-            var letra_tipeada = event.key.toUpperCase();
-            var expresion = /[A-Z]/;
-            var comparacion = letra_tipeada.match(expresion);
-            if ((intentos == 9) || (!partida)) {
-
-                return;
-            }
-
-            if ((comparacion == null) || (letra_tipeada.length > 1)) {
-
-                alert("solo se permiten letras");
-
-
-            } else {
-
-                dibujarLetra(palabra, letra_tipeada);
-            }
-
-        });
-    }
-
-}
-
-///FUNCION PARA DIBUJAR GUIONES
-function guiones() {
-    var cantidad = palabra.length;
-    var x = 400;
-    var y = 500;
-
-    for (var i = 1; i <= cantidad; i++) {
-
-        ///DIBIJAMOS LAS LINEAS SEGUN LAS PALABRAS
-        pincel.beginPath();
-        pincel.lineWidth = 2;
-        pincel.moveTo((x + 10), y);
-        pincel.lineTo((x + 35), y);
-        pincel.stroke();
-
-        x = x + 30;
-    }
-
-}
-
-function palabraSecreta(array) {
-    var palabra_seleccionada = array[Math.floor(Math.random() * array.length)]
-
-    return palabra_seleccionada;
-}
-
-var palabra = palabraSecreta(arrayPalabras);
 var array_incorrectas = [];
 var array_correctas = [];
 //var intentos= 0;
@@ -81,6 +12,8 @@ var partida = true;
 function dibujarLetra(palabra, letra) {
 
     if (!array_correctas.includes(letra)) {
+
+
 
         x = 412;
         var compara = false;
@@ -99,6 +32,7 @@ function dibujarLetra(palabra, letra) {
 
         if (!compara) {
 
+
             letraIncorrecta(letra, intentos);
         }
 
@@ -112,14 +46,18 @@ function dibujarLetra(palabra, letra) {
 
     }
 
+
 }
 
+
 function letraIncorrecta(letra, partida) {
+
 
     if (!array_incorrectas.includes(letra)) {
 
         dibujarHorca();
         array_incorrectas.push(letra);
+
 
         if (array_incorrectas.length == 9) {
 
@@ -140,12 +78,44 @@ function letraIncorrecta(letra, partida) {
     }
 
     return;
+    //console.log(array_incorrectas.includes(letra));
+
+}
+
+
+function agregarPalabra() {
+    var input = document.querySelector("#input-nueva-palabra");
+    var palabra_agregada = input.value.trim().toUpperCase();
+    var expresion = /[A-Z]/;
+    var expresion2 = /[0-9]/;
+    var comparacion = palabra_agregada.match(expresion);
+    var comparacion2 = palabra_agregada.match(expresion2);
+
+    if ((comparacion == null) || (comparacion2 != null)) {
+
+        noAceptaPalabra();
+        return;
+
+    } else {
+
+        arrayPalabras.push(palabra_agregada);
+
+        siAceptaPalabra();
+
+        setTimeout(function() {
+            limpiarSpan();
+        }, 3000);
+        input.value = "";
+        return;
+    }
+
 
 }
 
 var mensaje = document.querySelector("#eti-span");
 
 function perdio(palabra) {
+
 
     pincel.fillStyle = "red";
     pincel.font = "30px Coming Soon, Arial";
@@ -165,4 +135,20 @@ function gano(palabra) {
     pincel.fillStyle = "black";
     pincel.fillText("PALABRA: " + palabra, 370, 385);
     return;
+}
+
+function noAceptaPalabra() {
+    mensaje.classList.remove("aceptada");
+    mensaje.classList.add("no-aceptada");
+    mensaje.innerHTML = "Palabra introdicida no es valida, solo se permiten letras mayusculas";
+}
+
+function siAceptaPalabra() {
+
+    mensaje.classList.add("aceptada");
+    mensaje.innerHTML = "Palabra exitosamente introdicida a la lista";
+}
+
+function limpiarSpan() {
+    mensaje.innerHTML = "";
 }

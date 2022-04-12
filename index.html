@@ -2,6 +2,41 @@
 <html lang="en">
 
 <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ahorcado</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Hurricane&family=Josefin+Sans:ital,wght@1,200&family=Lobster&family=Montserrat:wght@300;400;700&family=Open+Sans:wght@300;400;700&family=Raleway:ital,wght@1,500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="fondo">
+        <div style="text-align:center; margin: 30px 0px;">
+            <h1 class="titulo">Ahorcado</h1>
+            <button id="iniciar-juego" class="btn">INICIAR JUEGO</button>
+        </div>
+        <canvas id="canvs" class="oculto" width="700px" height="600px"></canvas>
+        <div style="text-align:center">
+            <span id="eti-span" class="letra"></span>
+        </div>
+
+        <div style="text-align:center">
+            <input class="text-input" type="text" id="input-nueva-palabra" placeholder="Escriba una nueva palabra" maxlength="11">
+            <button class="btn" id="nueva-palabra">AGREGAR PALABRA</button>
+        </div>
+        <script type="text/javascript" src="js/canvas.js"></script>
+        <script type="text/javascript" src="js/ahorcado.js"></script>
+
+    </div>
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
