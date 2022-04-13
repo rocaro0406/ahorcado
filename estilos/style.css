@@ -1,97 +1,80 @@
-body {
-    font-family: "Grape Nuts", sans-serif;
-    font-size: 25px;
-    width: 100%;
-    height: 80px;
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0px;
+}
+
+.cabecera {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#logo-alura {}
+
+#mi-logo {}
+
+.espacio-superior {
+    width: 120px;
+    height: 90px;
+    background: rgba(255, 255, 255, 0.24);
+    border-radius: 800px;
+    padding: 24px;
+    margin: 40px 0px;
+}
+
+.btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-iniciar-juego {
+    margin: 20px;
+}
+
+#iniciar-juego {
+    width: 317px;
+    height: 114px;
+    left: 24px;
+    top: 24px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    align-items: center;
     text-align: center;
+    /* White */
+    color: #FFFFFF;
+    background: #0A3871;
+    margin: 0px 8px;
+    border-radius: 0.5em;
+    border: 1px solid #0A3871;
 }
 
-.mybackground {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(150deg, rgb(15, 245, 3), blue, rgb(94, 4, 158));
-    background-size: 400% 300%;
-    animation: BgGradient 5s ease infinite;
+.btn-nueva-palabra {
+    padding: 24px;
 }
 
-@keyframes BgGradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-img {
-    width: 300px;
-    height: 300px;
-}
-
-.inicio {
+#nueva-palabra {
+    width: 280px;
+    height: 67px;
+    left: 24px;
+    top: 24px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
     text-align: center;
+    /* Dark blue/dark-blue-300 */
+    color: #0A3871;
+    /*flex-grow: 1;*/
+    border: 1px solid #0A3871;
+    border-radius: 0.5em;
+    margin: 0px 8px;
 }
-
-.contenedor-botones {
-    width: 100%;
-}
-
-.contenedor-botones .boton {
-    background: none;
-    position: relative;
-    display: inline-block;
-    box-sizing: border-box;
-    width: 30%;
-    height: 60px;
-    text-align: center;
-    font-family: 'Grape Nuts', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: .3s ease all;
-    border-radius: 3px;
-    position: relative;
-    overflow: hidden;
-}
-
-.boton span {
-    color: #000;
-    z-index: 2;
-    transition: .3s ease all;
-}
-
-.boton svg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    fill: 0;
-}
-
-.boton rect {
-    width: 100%;
-    height: 100%;
-    stroke: #000;
-    stroke-width: 10px;
-    stroke-dasharray: 2000;
-    stroke-dashoffset: 2000;
-    transition: .6s ease all;
-}
-
-.boton:hover rect {
-    stroke-dashoffset: 0;
-}
-
-footer {
-    font-size: 20px;
-    margin-top: ;
-}
-
-@media screen {}

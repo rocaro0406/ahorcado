@@ -1,168 +1,106 @@
+// Gráficos
 var pantalla = document.querySelector("canvas");
 var pincel = pantalla.getContext("2d");
 
-var arrayPalabras = ["GATO", "PERRO", "CASA", "TOMATE", "CARRO", "VENTANA", "CIUDAD"];
-var intentos = 0;
+pincel.strokeStyle = "#0A3871";
+pincel.lineWidth = 4;
+pincel.font = "48px Inter";
 
 
-function palabraSecreta(array) {
-    var palabra_seleccionada = array[Math.floor(Math.random() * array.length)]
+function pGGanaste() {
+    pincel.fillStyle = "White";
+    pincel.fillRect(130, 140, 220, 55);
+    pincel.fillStyle = "Green";
+    pincel.fillText("¡Ganaste!", 140, 180);
+};
 
-    return palabra_seleccionada;
-}
+function pGPerdiste() {
+    pincel.fillStyle = "White";
+    pincel.fillRect(130, 140, 220, 55);
+    pincel.fillStyle = "Red";
+    pincel.fillText("¡Perdiste!", 140, 180);
+};
 
-
-var palabra = palabraSecreta(arrayPalabras);
-
-
-//FUNCION PARA INICIAR EL JUEGO
-function iniciarJuego() {
-
-    pantalla.classList.remove("oculto");
-    //console.log(palabra);
-    dibujarBase(); //DIBIJAMOS LA BASE DDEL AHORCADO
-    guiones(); //DIBUJAMOS LOS GUIONES DE LAS LETRAS
-
-
-    if ((intentos == 9) || (!partida)) {
-
-        return;
-
-    } else {
-
-        window.addEventListener("keyup", function(event) { //CAPTURAR TECLA	
-            var letra_tipeada = event.key.toUpperCase();
-            var expresion = /[A-Z]/;
-            var comparacion = letra_tipeada.match(expresion);
-            if ((intentos == 9) || (!partida)) {
-
-                return;
-            }
-
-            if ((comparacion == null) || (letra_tipeada.length > 1)) {
-
-                alert("Tecla presionada no es valida, solo se permiten letras");
-
-
-            } else {
-
-                dibujarLetra(palabra, letra_tipeada);
-            }
-
-
-        });
-    }
-
-
-
-}
-
-
-///FUNCION PARA DINUJAR GUIONES
-function guiones() {
-    var cantidad = palabra.length;
-    var x = 400;
-    var y = 500;
-
-
-    for (var i = 1; i <= cantidad; i++) {
-
-
-
-
-
-        ///DIBIJAMOS LAS LINEAS SEGUN LAS PALABRAS
-        pincel.beginPath();
-        pincel.lineWidth = 2;
-        pincel.moveTo((x + 10), y);
-        pincel.lineTo((x + 35), y);
-        pincel.stroke();
-
-        x = x + 30;
-    }
-
-}
-
-
-///FUNCION PARA DINUJAR LA BASE DEL AHORCADO
-function dibujarBase() {
-
-    pincel.fillStyle = "black";
+function p0GLimpiarPizarra() {
+    pincel.clearRect(0, 0, pantalla.width, pantalla.height);
     pincel.beginPath();
-    pincel.moveTo(70, 470);
-    pincel.lineTo(130, 500);
-    pincel.lineTo(10, 500);
-    pincel.fill();
-}
+    pincel.moveTo(140, 300);
+    pincel.lineTo(340, 300);
+    pincel.stroke();
+};
 
-
-function dibujarHorca() {
-
-    intentos++;
+function p1GColumnaAh() {
     pincel.beginPath();
-    pincel.lineWidth = 5;
+    pincel.moveTo(240, 300);
+    pincel.lineTo(240, 60);
+    pincel.stroke();
+};
 
-    if (intentos == 1) {
+function p2GTiranteAh() {
+    pincel.beginPath();
+    pincel.moveTo(238, 60);
+    pincel.lineTo(315, 60);
+    pincel.stroke();
+};
 
-        pincel.moveTo(70, 473);
-        pincel.lineTo(70, 50);
-        pincel.stroke();
+function p3GCuerdaAh() {
+    pincel.beginPath();
+    pincel.moveTo(315, 58);
+    pincel.lineTo(315, 80);
+    pincel.stroke();
+};
 
-    }
-    if (intentos == 2) {
+function p4GCabeza() {
+    pincel.beginPath();
+    pincel.arc(315, 105, 25, 0, 2 * Math.PI);
+    pincel.stroke();
+};
 
-        pincel.moveTo(70, 50);
-        pincel.lineTo(250, 50);
-        pincel.stroke();
+function p5GCuerpoAh() {
+    pincel.beginPath();
+    pincel.moveTo(315, 130);
+    pincel.lineTo(315, 210);
+    pincel.stroke();
+};
 
-    }
-    if (intentos == 3) {
+function p6GPiernaDerAh() {
+    pincel.beginPath();
+    pincel.moveTo(315, 210);
+    pincel.lineTo(340, 235);
+    pincel.stroke();
+};
 
-        pincel.moveTo(250, 50);
-        pincel.lineTo(250, 100);
-        pincel.stroke();
+function p7GPiernaIzqAh() {
+    pincel.beginPath();
+    pincel.moveTo(315, 210);
+    pincel.lineTo(290, 235);
+    pincel.stroke();
+};
 
-    }
-    if (intentos == 4) {
+function p8GBrazoDerAh() {
+    pincel.beginPath();
+    pincel.moveTo(315, 150);
+    pincel.lineTo(340, 175);
+    pincel.stroke();
+};
 
-        pincel.arc(250, 148, 50, 0, 2 * Math.PI); //círculo completo.
-        pincel.stroke();
+function p9GBrazoIzqAh() {
+    pincel.beginPath();
+    pincel.moveTo(315, 150);
+    pincel.lineTo(290, 175);
+    pincel.stroke();
+};
 
-    }
-    if (intentos == 5) { //TONCO
-
-        pincel.moveTo(250, 198);
-        pincel.lineTo(250, 400);
-        pincel.stroke();
-
-    }
-    if (intentos == 6) { //PIERNA 1
-
-        pincel.moveTo(250, 400);
-        pincel.lineTo(200, 480);
-        pincel.stroke();
-
-    }
-    if (intentos == 7) { //PIERNA 2
-
-        pincel.moveTo(250, 400);
-        pincel.lineTo(300, 480);
-        pincel.stroke();
-
-    }
-    if (intentos == 8) { //BRAZO 1
-
-        pincel.moveTo(250, 300);
-        pincel.lineTo(180, 245);
-        pincel.stroke();
-
-    }
-    if (intentos == 9) { //BRAZO 2
-
-        pincel.moveTo(250, 300);
-        pincel.lineTo(320, 245);
-        pincel.stroke();
-
-    }
-
-}
+/*
+p1GBaseAh();
+p2GColumnaAh();
+p3GTiranteAh();
+p4GCuerdaAh();
+p5GCabeza();
+p6GCuerpoAh();
+p7GPiernaDerAh();
+p8GPiernaIzqAh();
+p9GBrazoDerAh();
+p10GBrazoIzqAh();
+p0GLimpiarPizarra();
+*/
