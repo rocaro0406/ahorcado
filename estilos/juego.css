@@ -1,27 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Grape Nuts;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, blue, green, black);
+    background-size: 400% 400%;
+    position: relative;
+    animation: cambiar 10s ease-in-out infinite;
+}
+
+@keyframes cambiar {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
 }
 
 .cabecera {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 10px;
-}
-
-.espacio-superior {
-    width: 120px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.24);
-    border-radius: 800px;
-    /*padding: 24px;*/
-    /*margin: 40px 0px;*/
+    width: 100%;
+    height: 80px;
+    font-family: 'Grape Nuts', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    text-align: center;
 }
 
 .dibujo-ahorcado {
+    height: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,6 +48,8 @@
 .ahorcado {}
 
 .letras-adivinadas {
+    height: 50px;
+    font-family: Grape Nuts;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,8 +57,8 @@
 
 #letras-correctas {
     width: 80px;
-    height: 72px;
-    font-family: Inter;
+    height: 60px;
+    font-family: Grape Nuts;
     font-style: normal;
     font-weight: normal;
     font-size: 48px;
@@ -46,31 +66,31 @@
     text-decoration: underline;
     /* identical to box height, or 72px */
     text-align: center;
-    color: #0A3871;
+    color: #060707;
 }
 
 #guiones {
     width: 80px;
     height: 10px;
-    font-family: Inter;
+    font-family: Grape Nuts;
     font-style: normal;
     font-weight: normal;
     font-size: 80px;
     line-height: 150%;
     /* identical to box height, or 72px */
     text-align: center;
-    color: #0A3871;
+    color: black;
 }
 
 .letras-erradas {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20px;
+    height: 35px;
 }
 
 #letras-incorrectas {
-    font-family: Inter;
+    font-family: Grape Nuts;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
@@ -78,50 +98,36 @@
     /* identical to box height, or 36px */
     text-align: center;
     /* Gray/gray-400 */
-    color: #495057;
+    color: #12011c;
 }
 
 .btns {
-    display: flex;
-    flex-direction: row;
+    width: 100%;
+    height: 50px;
+    padding: 0 0 30px;
+    text-align: center;
+}
+
+.btn {
+    width: 30%;
+    height: 60px;
+    text-align: center;
+    font-family: Grape Nuts;
+    font-weight: 900;
     justify-content: center;
-    align-items: center;
-    padding: 24px;
+    background: none;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: .3s ease all;
+    border-radius: 5px;
 }
 
-#nuevo-juego {
-    width: 210px;
+footer {
+    width: 100%;
     height: 60px;
-    /*left: 24px;*/
-    /*top: 24px;*/
-    font-family: Inter;
-    font-style: normal;
-    font-weight: normal;
+    font-family: Grape Nuts;
     font-size: 16px;
-    line-height: 19px;
     text-align: center;
-    /* White */
-    color: white;
-    background-color: darkblue;
-    /* Inside auto layout */
-    margin: 0px 8px;
-    border-radius: 0.5em;
-    border: 1px solid #0A3871;
-}
-
-#desistir {
-    width: 210px;
-    height: 60px;
-    /*left: 24px;*/
-    /*top: 24px;*/
-    font-family: Inter;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
-    border-radius: 0.5em;
-    /* Dark blue/dark-blue-300 */
-    color: #0A3871;
-    border: 1px solid #0A3871;
 }

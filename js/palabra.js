@@ -6,5 +6,5 @@ function agregarPalabra(nuevaPalabra) {
 
 function btnAgregarPalabra() {
     agregarPalabra(inputNuevaPalabra.value);
-    location.href = "ahorcado.html";
+    location.href = "juego.html";
 };

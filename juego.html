@@ -6,26 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Ahorcado</title>
-    <link rel="stylesheet" type="text/css" href="css/style_ahorcado.css">
+    <link rel="stylesheet" type="text/css" href="./estilos/juego.css">
+    <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Hurricane&family=Josefin+Sans:ital,wght@1,200&family=Lobster&family=Montserrat:wght@300;400;700&family=Open+Sans:wght@300;400;700&family=Raleway:ital,wght@1,500&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
         <div class="cabecera">
-            <div class="logo-alura">
-                <a href="https://app.aluracursos.com/">
-                    <img src="img/Vector1x.png" title="Cursos de Alura" alt="Alura Cursos" id="logo-alura" width="31" height="48">
-                </a>
-            </div>
-            <div class="mi-logo">
-                <a href="https://github.com/martincalveira/ChallengeOneLogicaLatamP2/">
-                    <img src="img/MiLogo.jpeg" title="Creado por Martín Calveira" alt="Creado por Martín Calveira" id="mi-logo" width="48" height="48">
-                </a>
-            </div>
+            <h1>Ahorcado</h1>
         </div>
-        <div class="espacio-superior"></div>
         <div class="dibujo-ahorcado">
-            <canvas id="ahorcado" width="480px" height="360px"></canvas>
+            <canvas id="ahorcado" width="480px" height="300px"></canvas>
         </div>
         <div class="letras-adivinadas">
             <table id="tabla-letras-correctas">
@@ -43,14 +34,21 @@
         </div>
         <div class="btns">
             <div class="btn-nuevo-juego">
-                <button onclick="nuevoJuego()" class="btn" id="nuevo-juego">Nuevo Juego</button>
-            </div>
-            <div class="btn-desistir">
-                <button onclick="location.href = 'index.html';" class="btn" id="desistir">Desistir</button>
+                <button onclick="nuevoJuego()" class="btn" id="nuevo-juego">
+                    <span>Nuevo Juego</span>
+                </button>
+
+                <button onclick="location.href = 'index.html';" class="btn" id="rendirse">
+                    <span>!Me rindo¡</span>
+                </button>
             </div>
         </div>
+        <footer>
+            <h3>By Carolina Arevalo</h3>
+            <h5>Challenge Alura Latam</h5>
+        </footer>
     </div>
-    <script type="text/javascript" src="js/palabra_secreta.js" defer></script>
+    <script type="text/javascript" src="js/palabra.js" defer></script>
     <script type="text/javascript" src="js/canvas.js" defer></script>
     <script type="text/javascript" src="js/ahorcado.js" defer></script>
 </body>
